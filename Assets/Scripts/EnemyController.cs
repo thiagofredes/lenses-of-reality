@@ -9,9 +9,13 @@ public class EnemyController : RealityItem
 
 	public CharacterController characterController;
 
-	public int number;
+	public Collider collider;
 
 	public Animator animator;
+
+	public Renderer[] renderers;
+
+	public int number;
 
 	[HideInInspector]
 	public bool allowChaseByListening;
@@ -60,11 +64,25 @@ public class EnemyController : RealityItem
 		gamePaused = false;
 	}
 
+	private void SetObjectState (bool state)
+	{
+		this.characterController.enabled = state;
+		this.navMeshAgent.enabled = state;
+		this.collider.enabled = state;
+		this.animator.speed = System.Convert.ToSingle (state);
+		foreach (Renderer rend in renderers) {
+			rend.enabled = state;
+		}
+	}
+
 	protected override void OnRealitySet (int reality)
 	{
-		if (reality == this.reality)
+		if (reality == this.reality) {
+			SetObjectState (true);
 			this.currentState.Resume ();
-		else
+		} else {
 			this.currentState.Pause ();
+			SetObjectState (false);
+		}
 	}
 }

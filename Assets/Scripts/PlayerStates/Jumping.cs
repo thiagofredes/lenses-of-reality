@@ -20,9 +20,9 @@ public class Jumping : PlayerState
 
 	public override void OnEnter ()
 	{
-		upTime = 0.3f;
+		upTime = 0.25f;
 		totalUpTime = upTime;
-		boostTime = 0.3f;
+		boostTime = 0.15f;
 		player.animator.SetTrigger ("jump");
 		player.audioSource.PlayOneShot (player.jump);
 		if (Input.GetKey (KeyCode.Space)) {
@@ -54,7 +54,7 @@ public class Jumping : PlayerState
 			if (upTime <= 0f) {
 				player.SetState (new Falling (this.player));
 			} else {
-				player.characterController.Move (Time.deltaTime * (Vector3.up * 3f * player.movementSpeed * (upTime / totalUpTime) + movement * player.movementSpeed));
+				player.characterController.Move (Time.deltaTime * (Vector3.up * 2.5f * player.movementSpeed * (upTime / totalUpTime) + movement * player.movementSpeed));
 			}
 		}
 	}
