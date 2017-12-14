@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\PlayerStates\Jumping.cs" />
      <Compile Include="Assets\Scripts\PlayerStates\PlayerState.cs" />
      <Compile Include="Assets\Scripts\PlayerStates\Running.cs" />
+     <Compile Include="Assets\Scripts\RealityManagement\BaseRealityItem.cs" />
      <Compile Include="Assets\Scripts\RealityManagement\RealityItem.cs" />
      <Compile Include="Assets\Scripts\RealityManagement\RealityManager.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCameraController.cs" />
