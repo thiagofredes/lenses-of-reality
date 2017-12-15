@@ -23,7 +23,7 @@ public class Jumping : PlayerState
 		upTime = 0.25f;
 		totalUpTime = upTime;
 		boostTime = 0.15f;
-		player.animator.SetTrigger ("jump");
+		player.animator.SetTrigger ("Jump");
 		player.audioSource.PlayOneShot (player.jump);
 		if (Input.GetKey (KeyCode.Space)) {
 			boostTime -= Time.deltaTime;

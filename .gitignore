@@ -4,4 +4,4 @@ Library/
 Temp/
 Build/
 Builds/
-Assets/_*
+Assets/**/_*

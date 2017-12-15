@@ -31,7 +31,7 @@ public class Running : PlayerState
 			else
 				player.transform.rotation = Quaternion.LookRotation (movement);
 
-			player.animator.SetFloat ("movement", movement.normalized.magnitude);
+			player.animator.SetFloat ("Forward", movement.normalized.magnitude);
 			player.characterController.Move (player.movementSpeed * Time.deltaTime * movement.normalized);
 		}
 	}
