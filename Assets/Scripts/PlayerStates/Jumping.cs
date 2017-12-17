@@ -54,7 +54,7 @@ public class Jumping : PlayerState
 			if (upTime <= 0f) {
 				player.SetState (new Falling (this.player));
 			} else {
-				player.characterController.Move (Time.deltaTime * (Vector3.up * 2.5f * player.movementSpeed * (upTime / totalUpTime) + movement * player.movementSpeed));
+				player.characterController.Move (Time.deltaTime * (Vector3.up * 2.5f * player.movementSpeed * (upTime / totalUpTime) + 1.5f * movement * player.movementSpeed));
 			}
 		}
 	}

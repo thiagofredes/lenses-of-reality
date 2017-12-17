@@ -38,7 +38,7 @@ public class Falling : PlayerState
 				player.SetState (new Running (this.player));
 			} 
 				
-			player.characterController.Move (Time.deltaTime * (-Vector3.up * 10f * fallTime + 0.75f * movement * player.UnscaledMovementSpeed));
+			player.characterController.Move (Time.deltaTime * (-Vector3.up * 10f * fallTime + 1.5f * movement * player.UnscaledMovementSpeed));
 		}
 	}
 }
