@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
+using UnityEngine;
 
 
 public class PlayerState
@@ -18,5 +20,17 @@ public class PlayerState
 	{
 	}
 
+	public virtual void LateUpdate ()
+	{
+	}
 
+	public virtual void OnTriggerEnter (Collider other)
+	{
+		
+	}
+
+	public virtual void OnTriggerExit (Collider other)
+	{
+
+	}
 }

@@ -16,6 +16,8 @@ public class ThirdPersonCameraController : BaseGameObject
 
 	public bool invertY = false;
 
+    public float dampingDelay;
+
 	public static Vector3 CameraForward {
 		get { return instance.cam.transform.forward; }
 	}
@@ -66,11 +68,14 @@ public class ThirdPersonCameraController : BaseGameObject
 
 	private static ThirdPersonCameraController instance;
 
+    private Vector3 velocity;
+
 
 	void Awake ()
 	{
 		instance = this;
 		cam = GetComponentInChildren<Camera> ();
+        velocity = Vector3.zero;
 	}
 
 
@@ -111,7 +116,7 @@ public class ThirdPersonCameraController : BaseGameObject
 	void LateUpdate ()
 	{
 		if (!gamePaused && !gameEnded) {
-			this.transform.position = playerRef.transform.position + playerOffset;
+			this.transform.position = Vector3.SmoothDamp(this.transform.position, playerRef.transform.position + playerOffset, ref velocity, dampingDelay);
 			this.transform.rotation = Quaternion.Euler (currentY, currentX, 0f);
 			lookAtPosition = this.transform.position;
 

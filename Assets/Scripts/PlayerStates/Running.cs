@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Running : PlayerState
 {
+	private Vector3 counterMovement;
+
 	public Running (PlayerController player)
 	{
 		this.player = player;
@@ -32,7 +34,38 @@ public class Running : PlayerState
 				player.transform.rotation = Quaternion.LookRotation (movement);
 
 			player.animator.SetFloat ("Forward", movement.normalized.magnitude);
-			player.characterController.Move (player.movementSpeed * Time.deltaTime * movement.normalized);
+			player.characterController.Move (player.movementSpeed * Time.deltaTime * (movement.normalized + counterMovement.normalized));
 		}
+	}
+
+    public override void LateUpdate()
+    {
+        player.characterController.Move(counterMovement.normalized * player.movementSpeed * Time.deltaTime);
+    }
+
+    public override void OnTriggerEnter (Collider other)
+	{
+        if (other.GetComponent<EnemyController>())
+        {
+            RaycastHit hitThat;
+            RaycastHit hitThis;
+            Vector3 hitDirection = other.transform.position - player.transform.position;
+
+            Physics.Raycast(player.transform.position, hitDirection, out hitThat);
+            Physics.Raycast(other.transform.position, -hitDirection, out hitThis);
+
+            counterMovement = hitThat.point - hitThis.point;
+            counterMovement.z = 0f;
+
+            if (Vector3.Dot(counterMovement.normalized, hitDirection.normalized) > 0f)
+            {
+                counterMovement *= -1f;
+            }
+        }
+	}
+
+	public override void OnTriggerExit (Collider other)
+	{
+		counterMovement = Vector3.zero;
 	}
 }

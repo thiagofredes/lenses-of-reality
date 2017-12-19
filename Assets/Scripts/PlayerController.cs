@@ -36,6 +36,11 @@ public class PlayerController : BaseGameObject
 		currentState.Update ();
 	}
 
+	void LateUpdate ()
+	{
+		currentState.LateUpdate ();
+	}
+
 	public void SetState (PlayerState newState)
 	{
 		currentState.OnExit ();
@@ -73,16 +78,14 @@ public class PlayerController : BaseGameObject
 		return false;
 	}
 
-
-	public void Attract (Vector3 direction, float strength)
+	void OnTriggerEnter (Collider other)
 	{
-		this.movementSpeed = originalMovementSpeed - strength;
-		this.characterController.Move (direction * strength * Time.deltaTime);
+		this.currentState.OnTriggerEnter (other);
 	}
 
-	public void ResetSpeed ()
+	void OnTriggerExit (Collider other)
 	{
-		this.movementSpeed = originalMovementSpeed;
+		this.currentState.OnTriggerExit (other);
 	}
 
 	protected override void OnGamePaused ()
