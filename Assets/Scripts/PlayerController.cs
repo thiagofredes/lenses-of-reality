@@ -17,6 +17,8 @@ public class PlayerController : BaseGameObject
 
 	public AudioClip jump;
 
+    public int life;
+
 	public float UnscaledMovementSpeed {
 		get { return this.originalMovementSpeed; }
 	}
@@ -28,6 +30,7 @@ public class PlayerController : BaseGameObject
 	void Start ()
 	{
 		originalMovementSpeed = movementSpeed;
+        life = 5;
 		currentState = new Running (this);
 	}
 
@@ -63,7 +66,7 @@ public class PlayerController : BaseGameObject
 		return false;
 	}
 
-	public bool IsOnEnemyHead ()
+	public bool IsOnEnemyHead (out EnemyController enemy)
 	{
 		RaycastHit enemyHit;
 		Vector3 rayOrigin = this.transform.position + characterController.center;
@@ -71,10 +74,12 @@ public class PlayerController : BaseGameObject
 		float sphereRadius = this.characterController.radius;
 
 		if (Physics.SphereCast (rayOrigin, sphereRadius, -Vector3.up, out enemyHit, raycastDistance, LayerMask.GetMask ("Enemies"))) {
+            EnemyController enemy_ = enemyHit.collider.GetComponent<EnemyController>();
 			this.characterController.Move (-Vector3.up * (sphereRadius + this.characterController.skinWidth));
+            enemy = enemy_;
 			return true;
 		}
-
+        enemy = null;
 		return false;
 	}
 
@@ -87,6 +92,17 @@ public class PlayerController : BaseGameObject
 	{
 		this.currentState.OnTriggerExit (other);
 	}
+
+    public void Damage(int damage)
+    {
+        this.life -= damage;
+        Debug.Log("Player life now " + life);
+        if(this.life <= 0)
+        {
+            Debug.Log("Player Dead");
+            GameManager.EndGame(false);
+        }
+    }
 
 	protected override void OnGamePaused ()
 	{

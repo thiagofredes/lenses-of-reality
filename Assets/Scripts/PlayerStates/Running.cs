@@ -45,7 +45,8 @@ public class Running : PlayerState
 
     public override void OnTriggerEnter (Collider other)
 	{
-        if (other.GetComponent<EnemyController>())
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        if (enemy)
         {
             RaycastHit hitThat;
             RaycastHit hitThis;
@@ -61,6 +62,8 @@ public class Running : PlayerState
             {
                 counterMovement *= -1f;
             }
+
+            player.Damage(enemy.damage);
         }
 	}
 

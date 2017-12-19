@@ -58,4 +58,14 @@ public class Jumping : PlayerState
 			}
 		}
 	}
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        EnemyController enemy = other.GetComponent<EnemyController>();
+
+        if(enemy != null)
+        {
+            this.player.Damage(enemy.damage);
+        }
+    }
 }

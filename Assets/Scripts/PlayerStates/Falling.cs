@@ -23,6 +23,7 @@ public class Falling : PlayerState
 			float horizontal = Input.GetAxis ("Horizontal");
 			float vertical = Input.GetAxis ("Vertical");
 			Vector3 movement = ThirdPersonCameraController.CameraForwardProjectionOnGround * vertical + ThirdPersonCameraController.CameraRightProjectionOnGround * horizontal;
+            EnemyController enemy;
 
 			fallTime += 5f * Time.deltaTime;
 
@@ -31,7 +32,11 @@ public class Falling : PlayerState
 			else
 				player.transform.rotation = Quaternion.LookRotation (movement);
 
-			if (player.IsOnEnemyHead ()) {
+			if (player.IsOnEnemyHead (out enemy)) {
+                if(!enemy.killable)
+                {
+                    player.Damage(enemy.damage);
+                }
 				player.SetState (new Jumping (this.player));
 			} else if (player.IsGrounded ()) {
 				player.animator.SetTrigger ("OnGround");

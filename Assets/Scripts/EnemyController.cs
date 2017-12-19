@@ -15,7 +15,15 @@ public class EnemyController : RealityItem
 
 	public Renderer[] renderers;
 
+    public ParticleSystem particles;
+
 	public int number;
+
+    public int damage;
+
+    public int life;
+
+    public bool killable;
 
 	[HideInInspector]
 	public bool allowChaseByListening;
@@ -48,19 +56,21 @@ public class EnemyController : RealityItem
 
 	protected override void OnGamePaused ()
 	{
-		animator.speed = 0f;
+		//animator.speed = 0f;
 		gamePaused = true;
 	}
 
 	protected override void OnGameEnded (bool success)
 	{
-		animator.speed = 0f;
+		//animator.speed = 0f;
 		gameEnded = true;
+        this.currentState.Pause();
+        particles.Pause();
 	}
 
 	protected override void OnGameResumed ()
 	{
-		animator.speed = 1f;
+		//animator.speed = 1f;
 		gamePaused = false;
 	}
 
@@ -69,7 +79,7 @@ public class EnemyController : RealityItem
 		this.characterController.enabled = state;
 		this.navMeshAgent.enabled = state;
 		this.collider.enabled = state;
-		this.animator.speed = System.Convert.ToSingle (state);
+		//this.animator.speed = System.Convert.ToSingle (state);
 		foreach (Renderer rend in renderers) {
 			rend.enabled = state;
 		}

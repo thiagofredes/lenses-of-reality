@@ -1268,7 +1268,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   renderers:
   - {fileID: 1340810950}
+  particles: {fileID: 1355281465}
   number: 0
+  damage: 1
+  life: 1
+  killable: 0
   allowChaseByListening: 0
 --- !u!1 &851593619
 GameObject:
@@ -5727,6 +5731,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 4ecae9423d01ef94daf844917fb4e39c, type: 3}
   m_PrefabInternal: {fileID: 1349077018}
+--- !u!198 &1355281465 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198740670951282806, guid: ef8f2870ba89d814c94fce0879626f20,
+    type: 2}
+  m_PrefabInternal: {fileID: 984348868}
 --- !u!1 &1365807815 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 691fc3e284257c849a97ce80821efa44, type: 3}
@@ -5974,6 +5983,11 @@ Prefab:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 786234715}
+    - target: {fileID: 114532858154349502, guid: 1ed8e5cba3cb43f4da925bb9d99d0743,
+        type: 2}
+      propertyPath: life
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ed8e5cba3cb43f4da925bb9d99d0743, type: 2}
   m_IsPrefabParent: 0
