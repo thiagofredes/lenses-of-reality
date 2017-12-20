@@ -12,20 +12,14 @@ public class PatrolPointsController : MonoBehaviour
 
 	public PatrolPoints[] points;
 
-	private static PatrolPointsController _instance;
 
-	void Awake ()
+	public Transform GetPointFor (int enemy, int pointNum)
 	{
-		_instance = this;
+		return points [enemy].points [pointNum];
 	}
 
-	public static Transform GetPointFor (int enemy, int pointNum)
+	public int GetNumPointsFor (int enemy)
 	{
-		return _instance.points [enemy].points [pointNum];
-	}
-
-	public static int GetNumPointsFor (int enemy)
-	{
-		return _instance.points [enemy].points.Length;
+		return points [enemy].points.Length;
 	}
 }

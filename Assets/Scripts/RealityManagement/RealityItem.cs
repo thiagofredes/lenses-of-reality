@@ -6,10 +6,13 @@ public class RealityItem : BaseGameObject
 {
 	public int reality;
 
+	protected bool activatedOnThisReality;
+
 	void OnEnable ()
 	{
 		base.OnEnable ();
 		RealityManager.RealitySet += OnRealitySet;
+		activatedOnThisReality = this.gameObject.activeInHierarchy;
 	}
 
 	void Disable ()

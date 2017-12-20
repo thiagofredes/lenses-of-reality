@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerStates\Running.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Misc\SetCursorMode.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="88" Column="43" />
-      <File FileName="Assets\Scripts\PlayerStates\Running.cs" Line="4" Column="1" />
-      <File FileName="Assets\Scripts\PlayerStates\PlayerState.cs" Line="32" Column="35" />
+      <File FileName="Assets\Scripts\Misc\Rotate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Misc\Oscilate.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Misc\SetCursorMode.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

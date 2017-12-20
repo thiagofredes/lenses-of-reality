@@ -54,18 +54,17 @@ public class Jumping : PlayerState
 			if (upTime <= 0f) {
 				player.SetState (new Falling (this.player));
 			} else {
-				player.characterController.Move (Time.deltaTime * (Vector3.up * 2.5f * player.movementSpeed * (upTime / totalUpTime) + 1.5f * movement * player.movementSpeed));
+				player.characterController.Move (Time.deltaTime * (Vector3.up * 2.5f * player.movementSpeed * (upTime / totalUpTime) + movement * player.movementSpeed));
 			}
 		}
 	}
 
-    public override void OnTriggerEnter(Collider other)
-    {
-        EnemyController enemy = other.GetComponent<EnemyController>();
+	public override void OnTriggerEnter (Collider other)
+	{
+		EnemyController enemy = other.GetComponent<EnemyController> ();
 
-        if(enemy != null)
-        {
-            this.player.Damage(enemy.damage);
-        }
-    }
+		if (enemy != null) {
+			this.player.Damage (enemy.damage);
+		}
+	}
 }

@@ -9,7 +9,6 @@ public class BaseRealityItem : RealityItem
 
 	public Collider collider;
 
-
 	private void SetRendererAndCollider (bool status)
 	{
 		renderer.enabled = status;
@@ -18,9 +17,16 @@ public class BaseRealityItem : RealityItem
 
 	protected override void OnRealitySet (int reality)
 	{
-		if (this.reality == reality)
-			SetRendererAndCollider (true);
-		else
-			SetRendererAndCollider (false);
+		if (this.reality == reality) {
+			if (!activatedOnThisReality) {
+				SetRendererAndCollider (true);
+				activatedOnThisReality = true;
+			}
+		} else {
+			if (activatedOnThisReality) {
+				SetRendererAndCollider (false);
+				activatedOnThisReality = false;
+			}
+		}
 	}
 }

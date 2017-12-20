@@ -2,31 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(Rotate), typeof(Oscilate))]
 public class Gem : BaseGameObject
 {
-
-	public float rotationSpeed = 2f;
-
-	public float oscilationAmplitude = 2f;
-
 	public AudioSource audioSource;
-
-	private float t;
 
 	private Collider collider;
 
+	private Oscilate oscilation;
+
+	private Rotate rotateComponent;
+
 	void Awake ()
 	{
-		t = 0f;
 		collider = GetComponent<Collider> ();
+		oscilation = GetComponent<Oscilate> ();
+		rotateComponent = GetComponent<Rotate> ();
 	}
 
 	void Update ()
 	{
-		if (!gamePaused && !gameEnded) {
-			t = (t + 6f * Time.deltaTime) % (2f * Mathf.PI);
-			this.transform.position += Vector3.up * oscilationAmplitude * Mathf.Sin (t) * Time.deltaTime;
-			this.transform.Rotate (0f, rotationSpeed, 0f, Space.World);
+		if (gamePaused || gameEnded) {
+			oscilation.enabled = false;
+			rotateComponent.enabled = false;
 		}
 	}
 

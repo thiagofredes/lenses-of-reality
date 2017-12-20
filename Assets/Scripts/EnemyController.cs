@@ -5,25 +5,27 @@ using UnityEngine.AI;
 
 public class EnemyController : RealityItem
 {
+	public PatrolPointsController patrolPointsController;
+
 	public NavMeshAgent navMeshAgent;
 
 	public CharacterController characterController;
 
 	public Collider collider;
 
-	public Animator animator;
-
 	public Renderer[] renderers;
 
-    public ParticleSystem particles;
+	public ParticleSystem particles;
 
 	public int number;
 
-    public int damage;
+	public int damage;
 
-    public int life;
+	public int life;
 
-    public bool killable;
+	public bool killable;
+
+	public EnemyState startingState;
 
 	[HideInInspector]
 	public bool allowChaseByListening;
@@ -56,21 +58,18 @@ public class EnemyController : RealityItem
 
 	protected override void OnGamePaused ()
 	{
-		//animator.speed = 0f;
 		gamePaused = true;
 	}
 
 	protected override void OnGameEnded (bool success)
 	{
-		//animator.speed = 0f;
 		gameEnded = true;
-        this.currentState.Pause();
-        particles.Pause();
+		this.currentState.Pause ();
+		particles.Pause ();
 	}
 
 	protected override void OnGameResumed ()
 	{
-		//animator.speed = 1f;
 		gamePaused = false;
 	}
 
@@ -79,7 +78,11 @@ public class EnemyController : RealityItem
 		this.characterController.enabled = state;
 		this.navMeshAgent.enabled = state;
 		this.collider.enabled = state;
-		//this.animator.speed = System.Convert.ToSingle (state);
+		if (state) {
+			particles.Play ();
+		} else {
+			particles.Stop ();
+		}
 		foreach (Renderer rend in renderers) {
 			rend.enabled = state;
 		}
@@ -88,11 +91,17 @@ public class EnemyController : RealityItem
 	protected override void OnRealitySet (int reality)
 	{
 		if (reality == this.reality) {
-			SetObjectState (true);
-			this.currentState.Resume ();
+			if (!activatedOnThisReality) {
+				SetObjectState (true);
+				this.currentState.Resume ();
+				activatedOnThisReality = true;
+			}
 		} else {
-			this.currentState.Pause ();
-			SetObjectState (false);
+			if (activatedOnThisReality) {
+				this.currentState.Pause ();
+				SetObjectState (false);
+				activatedOnThisReality = false;
+			}
 		}
 	}
 }

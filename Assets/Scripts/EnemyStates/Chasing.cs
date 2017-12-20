@@ -16,7 +16,6 @@ public class Chasing : EnemyState
 		playerRef = GameObject.FindGameObjectWithTag ("Player");
 		enemy.navMeshAgent.stoppingDistance = 5f;
 		chaseCoroutine = this.enemy.StartCoroutine (Chase ());
-		enemy.animator.SetTrigger ("chase");
 	}
 
 	public override void OnEnter ()

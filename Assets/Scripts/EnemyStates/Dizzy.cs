@@ -14,7 +14,6 @@ public class Dizzy : EnemyState
 		this.enemy = enemy;
 		dizzyTime = 3f;
 		playerRef = GameObject.FindObjectOfType<PlayerController> ();
-		enemy.animator.SetTrigger ("dizzy");
 	}
 
 	public override void Update ()

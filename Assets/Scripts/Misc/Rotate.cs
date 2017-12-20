@@ -13,6 +13,6 @@ public class Rotate : MonoBehaviour
 	void Update ()
 	{
 		Vector3 rotationVector = angleAxis * rotationSpeed * Time.deltaTime;
-		this.transform.Rotate (rotationVector.x, rotationVector.y, rotationVector.z);
+		this.transform.Rotate (rotationVector.x, rotationVector.y, rotationVector.z, Space.World);
 	}
 }
