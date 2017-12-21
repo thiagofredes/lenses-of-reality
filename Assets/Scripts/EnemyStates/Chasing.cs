@@ -32,14 +32,7 @@ public class Chasing : EnemyState
 
 	public override void Update ()
 	{
-		if (!enemy.gamePaused && !enemy.gameEnded) {
-			if (Vector3.Distance (enemy.transform.position, playerRef.transform.position) < 5f) {
-				enemy.StopCoroutine (chaseCoroutine);
-				enemy.navMeshAgent.ResetPath ();
-				enemy.navMeshAgent.velocity = Vector3.zero;
-				enemy.SetState (new Grabbing (this.enemy));
-			}
-		}
+
 	}
 
 	private IEnumerator Chase ()

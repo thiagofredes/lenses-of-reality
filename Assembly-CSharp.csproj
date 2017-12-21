@@ -98,13 +98,12 @@
      <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
      <Compile Include="Assets\Scripts\BaseGameObject.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\EnemyPatroller.cs" />
      <Compile Include="Assets\Scripts\EnemyStates\Chasing.cs" />
      <Compile Include="Assets\Scripts\EnemyStates\Dizzy.cs" />
      <Compile Include="Assets\Scripts\EnemyStates\EnemyState.cs" />
-     <Compile Include="Assets\Scripts\EnemyStates\Grabbing.cs" />
      <Compile Include="Assets\Scripts\EnemyStates\Patrolling.cs" />
      <Compile Include="Assets\Scripts\EnemyStates\PatrolPointsController.cs" />
+     <Compile Include="Assets\Scripts\EnemyStates\Shooting.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gem.cs" />
      <Compile Include="Assets\Scripts\Misc\AnimationEventListener.cs" />
@@ -119,6 +118,7 @@
      <Compile Include="Assets\Scripts\RealityManagement\BaseRealityItem.cs" />
      <Compile Include="Assets\Scripts\RealityManagement\RealityItem.cs" />
      <Compile Include="Assets\Scripts\RealityManagement\RealityManager.cs" />
+     <Compile Include="Assets\Scripts\SnowBullet.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCameraController.cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />

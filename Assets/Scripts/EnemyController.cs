@@ -5,6 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyController : RealityItem
 {
+	public enum StartingState
+	{
+		PATROLLING,
+		CHASING,
+		SHOOTING
+	}
+
 	public PatrolPointsController patrolPointsController;
 
 	public NavMeshAgent navMeshAgent;
@@ -25,18 +32,42 @@ public class EnemyController : RealityItem
 
 	public bool killable;
 
-	public EnemyState startingState;
+	public float timeBetweenShots;
+
+	public float shotDistance;
+
+	public Transform shotOrigin;
+
+	public StartingState startingState;
+
+	public GameObject bullet;
 
 	[HideInInspector]
 	public bool allowChaseByListening;
+
+	[HideInInspector]
+	public PlayerController playerRef;
 
 	private EnemyState currentState;
 
 
 	void Start ()
 	{
+		playerRef = GameObject.FindObjectOfType<PlayerController> ();
 		allowChaseByListening = true;
-		this.currentState = new Patrolling (this);
+		switch (startingState) {
+		case StartingState.PATROLLING:
+			SetState (new Patrolling (this));
+			break;
+
+		case StartingState.CHASING:
+			SetState (new Chasing (this));
+			break;
+
+		case StartingState.SHOOTING:
+			SetState (new Shooting (this));
+			break;
+		}
 	}
 
 	void Update ()
@@ -46,7 +77,8 @@ public class EnemyController : RealityItem
 
 	public void SetState (EnemyState newState)
 	{
-		this.currentState.OnExit ();
+		if (this.currentState != null)
+			this.currentState.OnExit ();
 		this.currentState = newState;
 		this.currentState.OnEnter ();
 	}
@@ -103,5 +135,11 @@ public class EnemyController : RealityItem
 				activatedOnThisReality = false;
 			}
 		}
+	}
+
+	public void Shoot (Vector3 direction)
+	{
+		shotOrigin.transform.rotation = Quaternion.LookRotation (direction);
+		Instantiate (bullet, shotOrigin.position, shotOrigin.rotation);
 	}
 }

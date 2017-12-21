@@ -1,15 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Misc\SetCursorMode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Misc\Rotate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Misc\Oscilate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Misc\SetCursorMode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="56" Column="31" />
+      <File FileName="Assets\Scripts\EnemyStates\Shooting.cs" Line="5" Column="33" />
+      <File FileName="Assets\Scripts\EnemyStates\Chasing.cs" Line="35" Column="1" />
+      <File FileName="Assets\Scripts\PlayerStates\Falling.cs" Line="45" Column="85" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\Google Drive\Dev\Games\Unity\LC2 - Superpowers\Assets\Scripts\EnemyStates\Shooting.cs" line="30" column="1" />
+      <Breakpoint file="D:\Google Drive\Dev\Games\Unity\LC2 - Superpowers\Assets\Scripts\EnemyStates\Shooting.cs" line="35" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
