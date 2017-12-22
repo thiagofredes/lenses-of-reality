@@ -106,7 +106,11 @@
      <Compile Include="Assets\Scripts\EnemyStates\Shooting.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gem.cs" />
+     <Compile Include="Assets\Scripts\KeyManagement\GemCounter.cs" />
+     <Compile Include="Assets\Scripts\KeyManagement\GemCountingCanvas.cs" />
+     <Compile Include="Assets\Scripts\KeyManagement\KeyManager.cs" />
      <Compile Include="Assets\Scripts\Misc\AnimationEventListener.cs" />
+     <Compile Include="Assets\Scripts\Misc\LookAtCamera.cs" />
      <Compile Include="Assets\Scripts\Misc\Oscilate.cs" />
      <Compile Include="Assets\Scripts\Misc\Rotate.cs" />
      <Compile Include="Assets\Scripts\Misc\SetCursorMode.cs" />

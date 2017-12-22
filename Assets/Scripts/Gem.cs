@@ -7,6 +7,8 @@ public class Gem : BaseGameObject
 {
 	public AudioSource audioSource;
 
+	public GemCounter gemCounter;
+
 	private Collider collider;
 
 	private Oscilate oscilation;
@@ -46,6 +48,7 @@ public class Gem : BaseGameObject
 		while (audioSource.isPlaying) {
 			yield return new WaitForEndOfFrame ();
 		}
+		gemCounter.CountGem ();
 		Destroy (this.gameObject);
 	}
 
