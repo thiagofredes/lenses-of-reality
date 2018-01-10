@@ -8,6 +8,13 @@ public class RealityManager : BaseGameObject
 	
 	public static event Action<int> RealitySet;
 
+	public int reality = 1;
+
+
+	void Start ()
+	{
+		RealitySet (reality);
+	}
 
 	// Update is called once per frame
 	void Update ()

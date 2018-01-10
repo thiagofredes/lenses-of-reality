@@ -51,6 +51,11 @@ public class EnemyController : RealityItem
 	private EnemyState currentState;
 
 
+	void Awake ()
+	{
+		this.currentState = new EnemyState ();
+	}
+
 	void Start ()
 	{
 		playerRef = GameObject.FindObjectOfType<PlayerController> ();

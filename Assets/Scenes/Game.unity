@@ -15,7 +15,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.9675605, g: 0.9675605, b: 0.9675605, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.01
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 123e77280349ef24d9e0af23cafb11b3, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 196c43a62aa53c0459d2befe85f71fb4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -7688,6 +7688,7 @@ MonoBehaviour:
   gamePaused: 0
   gameEnded: 0
   gameResumed: 0
+  reality: 0
 --- !u!1 &899558000 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1412941745560394, guid: ef8f2870ba89d814c94fce0879626f20,

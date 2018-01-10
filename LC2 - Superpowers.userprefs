@@ -2,16 +2,17 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyController.cs" Line="56" Column="31" />
-      <File FileName="Assets\Scripts\EnemyStates\Shooting.cs" Line="5" Column="33" />
-      <File FileName="Assets\Scripts\EnemyStates\Chasing.cs" Line="35" Column="1" />
-      <File FileName="Assets\Scripts\PlayerStates\Falling.cs" Line="45" Column="85" />
+      <File FileName="Assets\Scripts\RealityManagement\RealityManager.cs" Line="16" Column="24" />
+      <File FileName="Assets\Scripts\BaseGameObject.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\RealityManagement\BaseRealityItem.cs" Line="5" Column="41" />
+      <File FileName="Assets\Scripts\RealityManagement\RealityItem.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="56" Column="41" />
+      <File FileName="Assets\Scripts\EnemyStates\EnemyState.cs" Line="6" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="D:\Google Drive\Dev\Games\Unity\LC2 - Superpowers\Assets\Scripts\EnemyStates\Shooting.cs" line="30" column="1" />
-      <Breakpoint file="D:\Google Drive\Dev\Games\Unity\LC2 - Superpowers\Assets\Scripts\EnemyStates\Shooting.cs" line="35" column="1" />
+      <Breakpoint file="D:\Google Drive\Dev\Games\Unity\LC2 - Superpowers\Assets\Scripts\KeyManagement\GemCountingCanvas.cs" line="32" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
